@@ -216,4 +216,9 @@ xcuserdata
 # https://github.com/johnno1962/injectionforxcode
 
 
+### biniruu ###
+
+Examples/
+
+
 # End of https://www.toptal.com/developers/gitignore/api/macos,swift,swiftpackagemanager,objective-c,xcode,cocoapods,xcodeinjection,fastlane,carthage
