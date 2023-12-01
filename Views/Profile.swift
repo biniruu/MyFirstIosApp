@@ -8,6 +8,39 @@
 import SwiftUI
 
 struct Profile: View {
+    enum BodyColor {
+        case yellow
+        case mint
+        case pink
+        case purple
+        
+        var color: Color {
+            switch self {
+                case .yellow:
+                    return .yellow
+                case .mint:
+                    return .mint
+                case .pink:
+                    return .pink
+                case .purple:
+                    return .purple
+            }
+        }
+    }
+    
+    enum BodySize: CGFloat {
+        case small = 30
+        case medium = 50
+        case large = 100
+    }
+    
+    enum BodyShadow {
+        case color(BodyColor)
+        case radius(CGFloat)
+        case x(CGFloat)
+        case y(CGFloat)
+    }
+    
     var body: some View {
         Image("profile")
             .resizable()
@@ -64,22 +97,10 @@ struct Profile: View {
         .padding(.bottom, 50)
         
         HStack(spacing: 20, content: {
-            Circle()
-                .frame(width: 50)
-                .foregroundColor(.cyan)
-                .shadow(color: .cyan.opacity(0.3), radius: 7, x: 10, y: 10)
-            Circle()
-                .frame(width: 50)
-                .foregroundColor(.mint)
-                .shadow(color: .mint.opacity(0.3), radius: 7, x: 10, y: 10)
-            Circle()
-                .frame(width: 50)
-                .foregroundColor(.pink)
-                .shadow(color: .pink.opacity(0.3), radius: 7, x: 10, y: 10)
-            Circle()
-                .frame(width: 50)
-                .foregroundColor(.purple)
-                .shadow(color: .purple.opacity(0.3), radius: 7, x: 10, y: 10)
+            CircleView(bodyColor: BodyColor.yellow.color, bodySize: BodySize.medium.rawValue)
+            CircleView(bodyColor: BodyColor.mint.color, bodySize: BodySize.medium.rawValue)
+            CircleView(bodyColor: BodyColor.pink.color, bodySize: BodySize.medium.rawValue)
+            CircleView(bodyColor: BodyColor.purple.color, bodySize: BodySize.medium.rawValue)
         })
     }
 }
