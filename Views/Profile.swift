@@ -41,6 +41,8 @@ struct Profile: View {
         case y(CGFloat)
     }
     
+    let colors: [BodyColor] = [.yellow, .mint, .pink, .purple]
+    
     var body: some View {
         Image("profile")
             .resizable()
@@ -97,10 +99,9 @@ struct Profile: View {
         .padding(.bottom, 50)
         
         HStack(spacing: 20, content: {
-            CircleView(bodyColor: BodyColor.yellow.color, bodySize: BodySize.medium.rawValue)
-            CircleView(bodyColor: BodyColor.mint.color, bodySize: BodySize.medium.rawValue)
-            CircleView(bodyColor: BodyColor.pink.color, bodySize: BodySize.medium.rawValue)
-            CircleView(bodyColor: BodyColor.purple.color, bodySize: BodySize.medium.rawValue)
+            ForEach(colors, id: \.self) { color in
+                CircleView(bodyColor: color.color, bodySize: BodySize.medium.rawValue)
+            }
         })
     }
 }
