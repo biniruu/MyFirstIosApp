@@ -42,6 +42,7 @@ struct Profile: View {
     }
     
     let colors: [BodyColor] = [.yellow, .mint, .pink, .purple]
+    var name = "biniruu"
     
     var body: some View {
         Image("profile")
@@ -52,7 +53,7 @@ struct Profile: View {
             .shadow(color: .pink.opacity(0.3) ,radius: 10, x: 10, y: 10)
         
         VStack {
-            Text("biniruu")
+            Text(name)
                 .font(.title)
                 .bold()
                 .foregroundColor(.black.opacity(0.9))
